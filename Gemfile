@@ -74,6 +74,7 @@ group :test do
   gem 'email_spec', '2.1.0'
   gem 'nokogiri', '1.7.0.1'
   gem 'simplecov', '0.12.0'
+  gem 'simplecov-console'
   gem 'single_test', '0.6.0'
 end
 
