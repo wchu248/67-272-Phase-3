@@ -16,6 +16,7 @@ namespace :db do
     # Step 1: create pieces along with purchases and prices
     sizes = [2.25, 3, 3.5, 4]
     quantities = [10,20,25,30,40,50,100]
+    price_increments = [0.15,0.15,0.2,0.2,0.25,0.25,0.3,0.4]
     basic_pieces_array = Array.new
     weighted_pieces_array = Array.new
 
@@ -38,19 +39,23 @@ namespace :db do
     end
 
     basic_pieces_array.each do |bp|
+      old_price = 1.65
       4.times do |i|
-        price = 1.95 + 0.25*i
+        price = old_price + price_increments.sample
         month = 24 - 6*i
-        FactoryGirl.create(:item_price, item: bp, price: price, start_date: month.months.ago.to_date)
+        new_price = FactoryGirl.create(:item_price, item: bp, price: price, start_date: month.months.ago.to_date)
+        old_price = new_price.price
         FactoryGirl.create(:purchase, item: bp, quantity: quantities.sample, date: month.months.ago.to_date)
       end
     end
 
     weighted_pieces_array.each do |wp|
+      old_price = 2.65
       4.times do |i|
-        price = 2.95 + 0.30*i
+        price = old_price + price_increments.sample
         month = 23 - 6*i
-        FactoryGirl.create(:item_price, item: wp, price: price, start_date: month.months.ago.to_date)
+        new_price = FactoryGirl.create(:item_price, item: wp, price: price, start_date: month.months.ago.to_date)
+        old_price = new_price.price
         FactoryGirl.create(:purchase, item: wp, quantity: quantities.sample, date: month.months.ago.to_date)
       end
     end
@@ -93,10 +98,12 @@ namespace :db do
     end
     
     vinyl_boards_array.each do |vb|
+      old_price = 1.55
       4.times do |j|
-        price = 1.85 + 0.20*j
+        price = old_price + price_increments.sample
         month = 24 - 6*j
-        FactoryGirl.create(:item_price, item: vb, price: price, start_date: month.months.ago.to_date)
+        new_price = FactoryGirl.create(:item_price, item: vb, price: price, start_date: month.months.ago.to_date)
+        old_price = new_price.price
         FactoryGirl.create(:purchase, item: vb, quantity: quantities.sample, date: month.months.ago.to_date)
       end
     end
