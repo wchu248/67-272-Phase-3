@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'home/home'
+
+  get 'home/about'
+
+  get 'home/contact'
+
+  get 'home/privacy'
+
   # Routes for main resources
   resources :items
   resources :purchases
