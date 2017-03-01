@@ -8,29 +8,47 @@ class ItemsController < ApplicationController
     @clocks = Item.active.for_category('clocks').alphabetical.paginate(page: params[:page]).per_page(10)
     @supplies = Item.active.for_category('supplies').alphabetical.paginate(page: params[:page]).per_page(10)
     @inactive_items = Item.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
-  end #done
+  end
 
   def new
     @item = Item.new
-  end #done
+  end
 
   def edit
-  end #done
+  end
 
   def show
+    @price_history = @item.item_prices.chronological.to_a
+    @similar_items = Item.active.for_category(@item.category).alphabetical
+    @similar_items.delete(@item)
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+        # if saved to database
+        flash[:notice] = "Successfully created #{@item.name}."
+        redirect_to item_path(@item) # go to show item page
+    else
+        # return to the 'new' form
+        render action: 'new'
+    end
   end
 
   def update
+    if @item.update_attributes(item_params)
+        flash[:notice] = "Successfully updated #{@item.name}."
+        redirect_to @item
+    else
+        render action: 'edit'
+    end
   end
 
   def destroy
     @item.destroy
     flash[:notice] = "Successfully removed #{@item.name} from the system."
     redirect_to items_url
-  end #done
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
