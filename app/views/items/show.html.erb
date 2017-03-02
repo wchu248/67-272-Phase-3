@@ -1,2 +1,7 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<h3><%= @item.name %></h3>
+<p>Price: <%= "$" + number_with_delimiter(number_with_precision(@item.current_price, precision: 2)) %></p>
+<p><%= @item.description %></p>
+<p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
+<p>Color: <%= @item.color %></p>
+<p>Price History: <%= @price_history.map{|p| p.price} %></p>
+<p>Similar Items: <%= @similar_items.map{|i| i.name} %></p>

@@ -4,14 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>TITLE GOES HERE</title>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-  	<%= yield %>
-		<%= javascript_include_tag "application" %>
+
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to "A&M Chess Store", home_path %></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><%= link_to "Items", items_path %></li>
+            <li><%= link_to "Purchases", purchases_path %></li>
+            <li><%= link_to "Prices", item_prices_path %></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="small-8 columns">
+        <!-- MAIN CONTENT GOES HERE -->
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+      </div>
+
+      <div class="small-1 columns">
+        &nbsp;
+      </div>
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="small-6 large-centered columns">
+          <%= render partial: 'partials/footer' %>
+        </div>
+      </div> 
+    </footer>     
   </body>
+
 </html>

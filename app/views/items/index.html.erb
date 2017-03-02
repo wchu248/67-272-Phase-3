@@ -1,2 +1,108 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h2>Available Items</h2>
+
+<% unless @boards.empty? && @pieces.empty? && @clocks.empty? && @supplies.empty? && @inactive_items.empty? %>
+  <% unless @boards.empty? %>
+    <h4>Boards</h4>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Inventory</th>
+        <th></th>
+        <th></th>
+      </tr>
+    <% for item in @boards %>
+      <tr>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td align="right"><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+        <td align="right"><%= number_with_delimiter(item.inventory_level) %></td>
+        <td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+        <td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% else %>
+    <p>There are no boards in the system at this time.</p>
+  <% end %>
+
+  <h4>Pieces</h4>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Inventory</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% for item in @pieces %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td align="right"><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+      <td align="right"><%= number_with_delimiter(item.inventory_level) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+      <td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <h4>Clocks</h4>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Inventory</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% for item in @clocks %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td align="right"><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+      <td align="right"><%= number_with_delimiter(item.inventory_level) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+      <td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <h4>Supplies</h4>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Inventory</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% for item in @supplies %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td align="right"><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+      <td align="right"><%= number_with_delimiter(item.inventory_level) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+      <td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <h4>Inactive Items</h4>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Inventory</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% for item in @inactive_items %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td align="right"><%= number_with_delimiter(item.inventory_level) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+      <td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p>There are no items in the system at this time.</p>
+<% end %>
+

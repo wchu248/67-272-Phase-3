@@ -11,9 +11,12 @@
  * file per style scope.
  *
  *= require_self
+ //= require foundation_and_overrides
+
+ *= require foundation_and_overrides 
  */
 
- .tl_name {
+.tl_name {
   width: 225px;
   display: block;
   position: absolute;

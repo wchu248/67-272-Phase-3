@@ -1,2 +1,22 @@
-<h1>Purchases#index</h1>
-<p>Find me in app/views/purchases/index.html.erb</p>
+<h2>Listing Purchases</h2>
+
+<table class="table">
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Date</th> 
+  </tr>
+
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= link_to purchase.item.name, item_path(purchase.item) %></td>
+    <td align="right"><%= number_with_delimiter(purchase.quantity) %></td>
+    <td><%= purchase.date.strftime("%b %e, %Y") %></td>
+  </tr>
+<% end %>
+</table>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @owners, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+</span>
