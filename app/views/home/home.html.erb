@@ -1,2 +1,22 @@
 <h1>Alex & Mark's Chess Store</h1>
-<p>Find me in app/views/home/home.html.erb</p>
+
+<h2>Reorder List</h2>
+
+<% unless @items_to_reorder.empty? %>
+  <table class="table">
+		<tr>
+			<th>Item</th>
+			<th>Inventory</th>
+            <th>Reorder Level</th>
+		</tr>
+		<% for item in @items_to_reorder %>
+		<tr>
+			<td><%= link_to item.name, item_path(item) %></td>
+            <td><%= item.inventory_level %></td>
+            <td><%= item.reorder_level %></td>
+		</tr>
+		<% end %>
+	</table>
+<% else %>
+	N/A
+<% end %>
