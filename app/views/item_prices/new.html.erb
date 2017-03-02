@@ -1,2 +1,14 @@
-<h1>ItemPrices#new</h1>
-<p>Find me in app/views/item_prices/new.html.erb</p>
+<h2>New Price</h2>
+
+<%= simple_form_for(@item_price, html: { class: 'form-horizontal' }) do |f| %>
+	<fieldset>
+    <%= f.label :item %>
+		<%= f.collection_select :item_id, Item.active.all, :id, :name, prompt: "Select ..." %>
+		<%= f.input :price %>
+		<div class="form-actions">
+			<%= f.submit class: 'button' %>
+			<%= link_to 'Cancel', items_path, :class => 'button secondary' %>
+		</div>
+	</fieldset>
+
+<% end %>
