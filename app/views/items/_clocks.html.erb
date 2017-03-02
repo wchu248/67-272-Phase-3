@@ -10,7 +10,11 @@
 	<% for item in @clocks %>
 	<tr>
 		<td><%= link_to item.name, item_path(item) %></td>
-		<td><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+		<% if item.current_price.nil? %>
+			<td>N/A</td>
+		<% else %>
+			<td><%= "$" + number_with_delimiter(number_with_precision(item.current_price, precision: 2)) %></td>
+		<% end %>
 		<td><%= number_with_delimiter(item.inventory_level) %></td>
 		<td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
 		<td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
