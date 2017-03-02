@@ -8,11 +8,13 @@
   </tr>
 
 <% @purchases.each do |purchase| %>
+  <% unless purchase.nil? || purchase.item.nil? %>
   <tr>
     <td><%= link_to purchase.item.name, item_path(purchase.item) %></td>
     <td align="right"><%= number_with_delimiter(purchase.quantity) %></td>
     <td><%= purchase.date.strftime("%b %e, %Y") %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
 

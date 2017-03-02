@@ -1,17 +1,26 @@
 <h3><%= @item.name %></h3>
-<p>Price: <%= "$" + number_with_delimiter(number_with_precision(@item.current_price, precision: 2)) %></p>
-<p><%= @item.description %></p>
+<p>Price: 
+	<% if @item.current_price.nil? %>
+		N/A
+	<% else %>
+		<%= "$" + number_with_delimiter(number_with_precision(@item.current_price, precision: 2)) %>
+	<% end %>
+</p>
+<p>Description: <%= @item.description %></p>
 <p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
 <p>Color: <%= @item.color %></p>
-<p>Price History:</p>
-	<% for p_hist in @price_history %>
-		<% if p_hist.end_date.nil? %>
-			<ul><%= "Current Price: $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></ul>
-		<% else %>
-			<ul><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></ul>
+<% unless @price_history.empty? %>
+	<p>Price History:</p>
+		<% for p_hist in @price_history %>
+			<% if p_hist.end_date.nil? %>
+				<li><%= "Current Price: $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></li>
+			<% else %>
+				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></li>
+			<% end %>
 		<% end %>
-	<% end %>
+<% end %>
+<p></p>
 <p>Similar Items:</p> 
 	<% for sim_item in @similar_items %>
-		<ul><%= sim_item.name %></ul>
+		<li><%= sim_item.name %></li>
 	<% end %>

@@ -1,4 +1,5 @@
-<h2>Available Items</h2>
+<h2>Available Items </h2>
+<h4><%= link_to 'Add a New Item', new_item_path %></h4>
 
 <% unless @boards.empty? && @pieces.empty? && @clocks.empty? && @supplies.empty? && @inactive_items.empty? %>
 
@@ -31,7 +32,7 @@
   <% else %>
     <p>There are no inactive items in the system at this time.</p>
   <% end %>
-  
+
 <% else %>
   <p>There are no items in the system at this time.</p>
 <% end %>
