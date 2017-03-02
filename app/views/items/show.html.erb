@@ -3,5 +3,15 @@
 <p><%= @item.description %></p>
 <p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
 <p>Color: <%= @item.color %></p>
-<p>Price History: <%= @price_history.map{|p| p.price} %></p>
-<p>Similar Items: <%= @similar_items.map{|i| i.name} %></p>
+<p>Price History:</p>
+	<% for p_hist in @price_history %>
+		<% if p_hist.end_date.nil? %>
+			<ul><%= "Current Price: $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></ul>
+		<% else %>
+			<ul><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></ul>
+		<% end %>
+	<% end %>
+<p>Similar Items:</p> 
+	<% for sim_item in @similar_items %>
+		<ul><%= sim_item.name %></ul>
+	<% end %>
