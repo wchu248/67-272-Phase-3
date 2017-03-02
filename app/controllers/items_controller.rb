@@ -19,8 +19,7 @@ class ItemsController < ApplicationController
 
   def show
     @price_history = @item.item_prices.chronological.to_a
-    @similar_items = Item.active.for_category(@item.category).alphabetical
-    @similar_items = @similar_items.select{ |i| i != @item }
+    @similar_items = Item.active.for_category(@item.category).alphabetical.select{ |i| i != @item }
   end
 
   def create

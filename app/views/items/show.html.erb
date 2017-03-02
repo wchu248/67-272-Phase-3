@@ -28,3 +28,6 @@
 	<% for sim_item in @similar_items %>
 		<li><%= sim_item.name %></li>
 	<% end %>
+<p> </p>
+<%= link_to 'Edit', edit_item_path(@item), class: "button tiny radius"%>
+<%= link_to 'Destroy', @item, class: "button tiny radius alert", confirm: 'Are you sure?', method: :delete %>
