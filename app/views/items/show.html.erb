@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <h3><%= @item.name %></h3>
 <p>Price: 
 	<% if @item.current_price.nil? %>
@@ -8,6 +11,7 @@
 </p>
 <p>Description: <%= @item.description %></p>
 <p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
+<p>Reorder Level: <%= number_with_delimiter(@item.reorder_level) %></p>
 <p>Color: <%= @item.color %></p>
 <% unless @price_history.empty? %>
 	<p>Price History:</p>

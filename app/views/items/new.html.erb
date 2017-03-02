@@ -1,5 +1,18 @@
 <h2>New Item</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', items_path %>
+<%= simple_form_for(@item, html: { class: 'form-horizontal' }) do |f| %>
+	<fieldset>
+		<%= f.input :name %>
+		<%= f.input :description %>
+		<%= f.label :category %>
+		<%= f.select :category, Item::CATEGORIES %>
+		<%= f.input :color %>
+		<%= f.input :weight %>
+		<%= f.input :inventory_level %>
+		<%= f.input :reorder_level %>
+		<div class="form-actions">
+			<%= f.submit class: 'button' %>
+			<%= link_to 'Cancel', items_path, :class => 'button secondary' %>
+		</div>
+	</fieldset>
+<% end %>

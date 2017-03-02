@@ -1,2 +1,17 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<h2>Update Item</h2>
+
+<%= simple_form_for(@item, html: { class: 'form-horizontal' }) do |f| %>
+	<fieldset>
+		<%= f.input :name %>
+		<%= f.input :description %>
+		<%= f.label :category %>
+		<%= f.select :category, Item::CATEGORIES %>
+		<%= f.input :color %>
+		<%= f.input :weight %>
+		<%= f.input :reorder_level %>
+		<div class="form-actions">
+			<%= f.submit class: 'button' %>
+			<%= link_to 'Cancel', items_path, :class => 'button secondary' %>
+		</div>
+	</fieldset>
+<% end %>
