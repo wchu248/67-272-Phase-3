@@ -4,13 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     <title>A&M Chess Store :: <%= controller.controller_name.capitalize %></title>
 
     <%= stylesheet_link_tag    "application" %>
@@ -21,20 +14,20 @@
 
   <body>
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
-
     <div class="contain-to-grid">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><i class="material-icons">store</i>Alex and Mark's Chess Store</a>
-          <ul class="right hide-on-med-and-down">
-            <li class="tab"><%= link_to "Items", items_path %></li>
-            <li class="tab"><%= link_to "Purchases", purchases_path %></li>
-            <li class="tab"><%= link_to "Prices", item_prices_path %></li>
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to "Alex & Mark's Chess Store", home_path %></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><%= link_to "Items", items_path %></li>
+            <li><%= link_to "Purchases", purchases_path %></li>
+            <li><%= link_to "Prices", item_prices_path %></li>
           </ul>
-        </div>
+        </section>
       </nav>
     </div>
 
@@ -58,3 +51,5 @@
       </div> 
     </footer>     
   </body>
+
+</html>

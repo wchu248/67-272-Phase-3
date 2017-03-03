@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require materialize-sprockets
+//= require foundation
 //= require_tree .
 
 $(function() {
@@ -21,9 +20,3 @@ $(function() {
 });
 
 $(function(){ $(document).foundation(); });
-
-$(document).ready(function() {
-  $('select').material_select();
-});
-
-$('#description').trigger('autoresize');
