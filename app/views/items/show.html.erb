@@ -17,9 +17,9 @@
 	<p>Price History:</p>
 		<% for p_hist in @price_history %>
 			<% if p_hist.end_date.nil? %>
-				<li><%= "Current Price: $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></li>
+				<li><%= "Current Price: " + number_to_currency(p_hist.price) %></li>
 			<% else %>
-				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": $" + number_with_delimiter(number_with_precision(p_hist.price, precision: 2)) %></li>
+				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": " + number_to_currency(p_hist.price) %></li>
 			<% end %>
 		<% end %>
 <% end %>
