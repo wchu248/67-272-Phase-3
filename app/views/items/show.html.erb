@@ -17,7 +17,7 @@
 	<p>Price History:</p>
 		<% for p_hist in @price_history %>
 			<% if p_hist.end_date.nil? %>
-				<li><%= "Current Price: " + number_to_currency(p_hist.price) %></li>
+				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to today: " + number_to_currency(p_hist.price) %></li>
 			<% else %>
 				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": " + number_to_currency(p_hist.price) %></li>
 			<% end %>
