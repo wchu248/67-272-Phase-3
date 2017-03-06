@@ -20,7 +20,7 @@
 				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to today: " + number_to_currency(p_hist.price) %></li>
 			<% else %>
 				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": " + number_to_currency(p_hist.price) %></li>
-			<% end %>
+			<% end %> 
 		<% end %>
 <% else %>
 	<p>There are no past or current prices for this item.</p>
