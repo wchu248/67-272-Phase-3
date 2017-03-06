@@ -25,10 +25,8 @@
 <% end %>
 <p></p>
 <p>Similar Items:</p> 
-	<% unless @similar_items.empty?%>
-		<% for sim_item in @similar_items %>
-			<li><%= link_to sim_item.name, item_path(sim_item) %></li>
-		<% end %>
+	<% for sim_item in @similar_items %>
+		<li><%= link_to sim_item.name, item_path(sim_item) %></li>
 	<% end %>
 <p> </p>
 <%= link_to 'Edit', edit_item_path(@item), class: "button tiny radius"%>
