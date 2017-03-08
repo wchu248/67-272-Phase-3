@@ -3,23 +3,28 @@
 <h2>Reorder List</h2>
 
 <% unless @items_to_reorder.empty? %>
-  <table class="table">
-		<tr>
-			<th>Item</th>
-			<th>Inventory</th>
-            <th>Reorder Level</th>
-			<th></th>
-			<th></th>
-		</tr>
-		<% for item in @items_to_reorder %>
-		<tr>
-			<td><%= link_to item.name, item_path(item) %></td>
-            <td><%= item.inventory_level %></td>
-            <td><%= item.reorder_level %></td>
-			<td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
-			<td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
-		</tr>
-		<% end %>
+  <table class="bordered highlight centered responsive-table">
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Inventory</th>
+							<th>Reorder Level</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<% for item in @items_to_reorder %>
+			<tr>
+				<td><%= link_to item.name, item_path(item) %></td>
+							<td><%= item.inventory_level %></td>
+							<td><%= item.reorder_level %></td>
+				<td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
+				<td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
 	</table>
 <% else %>
 	No items need to be reordered at this time.
