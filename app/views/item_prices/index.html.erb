@@ -1,5 +1,5 @@
 <h3>Current Item Prices</h3>
-<h4><%= link_to 'Change an Item\'s Price', new_item_price_path %></h4>
+<a class="waves-effect waves-light btn" <%= link_to "Change an Item's Price", new_item_price_path %> </a>
 
 <% unless @active_items.empty? %>
   <table class="bordered highlight responsive-table">
