@@ -1,18 +1,63 @@
-<h2>New Item</h2>
+<h4><i class="medium material-icons">fiber_new</i> New Item </h4>
 
-<%= simple_form_for(@item, html: { class: 'form-horizontal' }) do |f| %>
-	<fieldset>
-		<%= f.input :name %>
-		<%= f.input :description %>
-		<%= f.label :category %>
-		<%= f.select :category, Item::CATEGORIES %>
-		<%= f.input :color %>
-		<%= f.input :weight %>
-		<%= f.input :inventory_level %>
-		<%= f.input :reorder_level %>
-		<div class="form-actions">
-			<%= f.submit class: 'button' %>
-			<%= link_to 'Cancel', items_path, :class => 'button secondary' %>
+<div class="row">
+	<%= form_for(@item) do |f| %>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">info_outline</i>
+				<%= f.label :name %>
+    		<%= f.text_field :name %>
+			</div>
 		</div>
-	</fieldset>
-<% end %>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">description</i>
+				<%= f.label :description %>
+    		<%= f.text_field :description %>
+			</div>
+    </div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">list</i>
+				<%= f.label :category %><br></br>
+				<%= f.select :category, Item::CATEGORIES %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">color_lens</i>
+				<%= f.label :color %>
+    		<%= f.text_field :color %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">fitness_center</i>
+				<%= f.label :weight %>
+    		<%= f.number_field :weight %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">store</i>
+				<%= f.label :inventory_level %>
+    		<%= f.number_field :inventory_level %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">add_shopping_cart</i>
+				<%= f.label :reorder_level %>
+    		<%= f.number_field :reorder_level %>
+			</div>
+		</div>
+		<div class ="row">
+			<div class="input-field col s12">
+				<button class="btn waves-effect waves-light">
+					<i class="material-icons right">send</i>
+					<%= f.submit %>
+				</button>
+			</div>
+		</div>
+	<% end %>
+</div>
