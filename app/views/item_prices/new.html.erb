@@ -2,6 +2,16 @@
 
 <div class="row">
 	<%= simple_form_for(@item_price) do |f| %>
+
+	  <% if @item_price.errors.any? %>
+			<div id="error_explanation">
+				<h6><%= pluralize(@item_price.errors.count, "error") %> prohibited this item from being saved:</h6>
+				<% @item_price.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</div>
+  	<% end %>
+
 		<div class="row">
 			<div class="input-field col s10">
 				<i class="material-icons prefix">info_outline</i>
