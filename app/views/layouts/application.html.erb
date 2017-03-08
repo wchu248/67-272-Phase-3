@@ -10,46 +10,49 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <!-- Materialize CSS and JavaScript links -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+          
   </head>
 
   <body>
-
-    <div class="contain-to-grid">
-      <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1><%= link_to "Alex & Mark's Chess Store", home_path %></h1>
-          </li>
-        </ul>
-        <section class="top-bar-section">
-          <ul class="left">
-            <li><%= link_to "Items", items_path %></li>
-            <li><%= link_to "Purchases", purchases_path %></li>
-            <li><%= link_to "Prices", item_prices_path %></li>
-          </ul>
-        </section>
-      </nav>
-    </div>
-
-    <div class="row">
-      <div class="small-8 columns">
-        <!-- MAIN CONTENT GOES HERE -->
-        <%= yield %>
-        <%= javascript_include_tag "application" %>
+      <div class="contain-to-grid">
+        <nav>
+          <div class="nav-wrapper amber accent-4">
+            <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %>></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to "Items", items_path %></li>
+              <li><%= link_to "Purchases", purchases_path %></li>
+              <li><%= link_to "Prices", item_prices_path %></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-
-      <div class="small-1 columns">
-        &nbsp;
-      </div>
-    </div>
-
-    <footer>
+    <div class="container">
       <div class="row">
-        <div class="small-6 large-centered columns">
-          <%= render partial: 'partials/footer' %>
+        <div class="small-8 columns">
+          <!-- MAIN CONTENT GOES HERE -->
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
         </div>
-      </div> 
-    </footer>     
+
+        <div class="small-1 columns">
+          &nbsp;
+        </div>
+      </div>
+
+      <footer>
+        <div class="row">
+          <div class="small-6 large-centered columns">
+            <%= render partial: 'partials/footer' %>
+          </div>
+        </div> 
+      </footer>  
+    </div>   
   </body>
 
 </html>
