@@ -10,7 +10,7 @@ class ItemPricesController < ApplicationController
 
   def create
     @item_price = ItemPrice.new(item_price_params)
-    @item_price.start_date = Date.today
+    @item_price.start_date = Date.current
     if @item_price.save
         # if saved to database
         @item = @item_price.item

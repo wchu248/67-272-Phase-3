@@ -10,7 +10,7 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = Purchase.new(purchase_params)
-    @purchase.date = Date.today
+    @purchase.date = Date.current
     if @purchase.save
         # if saved to database
         flash[:notice] = "Successfully added a purchase for #{@purchase.quantity} #{@purchase.item.name}."
