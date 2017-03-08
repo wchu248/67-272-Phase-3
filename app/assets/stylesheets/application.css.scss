@@ -108,3 +108,23 @@ li.well {
 label {
   padding-right: 4px;
 }
+
+#error_explanation {
+  background-color: #FCC;
+  border: solid 1px #C66;
+	color: #800000;
+  padding: 5px 8px;
+  margin: 10px;
+  margin-right: 15%;
+  font-style: italic;
+}
+
+.notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+	color: #00AB56;
+  padding: 5px 8px;
+  margin: 10px;
+  margin-right: 15%;
+  font-style: italic;
+}

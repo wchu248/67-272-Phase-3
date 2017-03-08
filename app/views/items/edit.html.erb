@@ -1,7 +1,7 @@
 <h4><i class="medium material-icons">edit</i> Edit Item </h4>
 
 <div class="row">
-	<%= form_for(@item) do |f| %>
+	<%= simple_form_for(@item) do |f| %>
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">info_outline</i>
@@ -35,13 +35,6 @@
 				<i class="material-icons prefix">fitness_center</i>
 				<%= f.label :weight %>
     		<%= f.number_field :weight %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">store</i>
-				<%= f.label :inventory_level %>
-    		<%= f.number_field :inventory_level %>
 			</div>
 		</div>
 		<div class="row">
