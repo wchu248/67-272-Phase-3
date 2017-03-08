@@ -20,8 +20,8 @@
 				<td><%= number_to_currency(item.current_price) %></td>
 			<% end %>
 			<td><%= number_with_delimiter(item.inventory_level) %></td>
-			<td><%= link_to 'Edit', edit_item_path(item), class: "button tiny radius"%></td>
-			<td><%= link_to 'Destroy', item, class: "button tiny round alert", confirm: 'Are you sure?', method: :delete %></td>
+			<td><a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(item) %> </a></td>
+			<td><a class="waves-effect waves-red btn" <%= link_to "Destroy", item, method: :delete %> </a></td>
 		</tr>
 		<% end %>
 	</tbody>
