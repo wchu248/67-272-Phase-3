@@ -1,14 +1,28 @@
-<h2>New Purchase</h2>
+<h4><i class="medium material-icons">shopping_basket</i> New Purchase</h4>
 
-<%= simple_form_for(@purchase, html: { class: 'form-horizontal' }) do |f| %>
-	<fieldset>
-    <%= f.label :item %>
-		<%= f.collection_select :item_id, Item.active.all, :id, :name, prompt: "Select ..." %>
-		<%= f.input :quantity %>
-		<div class="form-actions">
-			<%= f.submit class: 'button' %>
-			<%= link_to 'Cancel', purchases_path, :class => 'button secondary' %>
+<div class="row">
+	<%= simple_form_for(@purchase) do |f| %>
+		<div class="row">
+			<div class="input-field col s10">
+				<i class="material-icons prefix">info_outline</i>
+				<%= f.label :item %><br></br>
+    		<%= f.collection_select :item_id, Item.active.all, :id, :name %>
+			</div>
 		</div>
-	</fieldset>
-
-<% end %>
+		<div class="row">
+			<div class="input-field col s10">
+				<i class="material-icons prefix">equalizer</i>
+				<%= f.label :quantity %>
+    		<%= f.number_field :quantity %>
+			</div>
+    </div>
+		<div class ="row">
+			<div class="input-field col s10">
+				<button class="btn waves-effect waves-light">
+					<i class="material-icons right">send</i>
+					<%= f.submit %>
+				</button>
+			</div>
+		</div>
+	<% end %>
+</div>

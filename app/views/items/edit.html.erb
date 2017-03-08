@@ -1,7 +1,17 @@
-<h4><i class="medium material-icons">edit</i> Edit Item </h4>
+<h4><i class="medium material-icons">edit</i> Edit Item</h4>
 
 <div class="row">
 	<%= simple_form_for(@item) do |f| %>
+
+		<% if @item.errors.any? %>
+			<div id="error_explanation">
+				<h6><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h6>
+				<% @item.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</div>
+  	<% end %>
+		
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">info_outline</i>
