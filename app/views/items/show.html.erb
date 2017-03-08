@@ -24,10 +24,14 @@
 		<% end %>
 <% end %>
 <p></p>
-<p>Similar Items:</p> 
-	<% for sim_item in @similar_items %>
-		<li><%= link_to sim_item.name, item_path(sim_item) %></li>
-	<% end %>
+<% unless @similar_items.empty?%>
+	<p>Similar Items:</p> 
+		<% for sim_item in @similar_items %>
+			<li><%= link_to sim_item.name, item_path(sim_item) %></li>
+		<% end %>
+<% else %>
+	<p>Similar Items: None</p> 
+<% end %>
 <p> </p>
 <%= link_to 'Edit', edit_item_path(@item), class: "button tiny radius"%>
 <%= link_to 'Destroy', @item, class: "button tiny radius alert", confirm: 'Are you sure?', method: :delete %>
