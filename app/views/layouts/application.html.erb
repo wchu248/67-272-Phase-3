@@ -21,18 +21,16 @@
   </head>
 
   <body>
-    <div class="contain-to-grid">
-      <nav>
-        <div class="nav-wrapper amber accent-4">
-          <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><%= link_to "Items", items_path %></li>
-            <li><%= link_to "Purchases", purchases_path %></li>
-            <li><%= link_to "Prices", item_prices_path %></li>
-          </ul>
-        </div>
-      </nav>
+  <nav>
+    <div class="nav-wrapper amber accent-4">
+      <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Items", items_path %></li>
+        <li><%= link_to "Purchases", purchases_path %></li>
+        <li><%= link_to "Prices", item_prices_path %></li>
+      </ul>
     </div>
+  </nav>
   <div class="container">
     <div class="row">
       <div class="small-8 columns">
@@ -46,13 +44,7 @@
       </div>
     </div>
   </div>
-    <footer>
-      <div class="row">
-        <div class="small-6 large-centered columns">
-          <%= render partial: 'partials/footer' %>
-        </div>
-      </div> 
-    </footer>  
+    <%= render partial: 'partials/footer' %>
   </body>
 
 </html>
