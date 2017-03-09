@@ -9,6 +9,7 @@
 		<%= "$" + number_with_delimiter(number_with_precision(@item.current_price, precision: 2)) %>
 	<% end %>
 </p>
+<p>Category: <%= @item.category.capitalize %></p>
 <p>Description: <%= @item.description %></p>
 <p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
 <p>Reorder Level: <%= number_with_delimiter(@item.reorder_level) %></p>
@@ -36,4 +37,4 @@
 <% end %>
 <p> </p>
 <a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(@item) %> </a>
-<a class="waves-effect waves-red btn tooltipped" data-position="top" data-delay="50" data-tooltip="Are you sure?" <%= link_to "Destroy", @item, method: :delete %>
+<a class="waves-effect waves-red btn tooltipped" data-position="top" data-delay="10" data-tooltip="Are you sure?" <%= link_to "Destroy", @item, method: :delete %>

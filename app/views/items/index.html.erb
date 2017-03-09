@@ -11,28 +11,28 @@
   <% unless @boards.empty? %>
     <%= render partial: "boards" %>
   <% else %>
-    <p>There are no boards in the system at this time.</p>
+    <p>There are no active boards in the system at this time.</p>
   <% end %>
 
   <h4>Pieces</h4>
   <% unless @pieces.empty? %>
     <%= render partial: "pieces" %>
   <% else %>
-    <p>There are no pieces in the system at this time.</p>
+    <p>There are no active pieces in the system at this time.</p>
   <% end %>
 
   <h4>Clocks</h4>
   <% unless @clocks.empty? %>
     <%= render partial: "clocks" %>
   <% else %>
-    <p>There are no clocks in the system at this time.</p>
+    <p>There are no active clocks in the system at this time.</p>
   <% end %>
 
   <h4>Supplies</h4>
   <% unless @supplies.empty? %>
     <%= render partial: "supplies" %>
   <% else %>
-    <p>There are no supplies in the system at this time.</p>
+    <p>There are no active supplies in the system at this time.</p>
   <% end %>
 
   <h4>Inactive Items</h4>
