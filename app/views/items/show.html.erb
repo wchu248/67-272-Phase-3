@@ -33,5 +33,5 @@
 	<p>Similar Items: None</p> 
 <% end %>
 <p> </p>
-<%= link_to 'Edit', edit_item_path(@item), class: "button tiny radius"%>
-<%= link_to 'Destroy', @item, class: "button tiny radius alert", confirm: 'Are you sure?', method: :delete %>
+<a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(@item) %> </a>
+<a class="waves-effect waves-red btn" <%= link_to "Destroy", @item, method: :delete %>
