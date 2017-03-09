@@ -22,6 +22,8 @@
 				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to " + p_hist.end_date.strftime("%-m/%-d/%y") + ": " + number_to_currency(p_hist.price) %></li>
 			<% end %>
 		<% end %>
+<% else %>
+	<p>There are no prices in the system for this item.
 <% end %>
 <p></p>
 <% unless @similar_items.empty?%>
@@ -30,8 +32,8 @@
 			<li><%= link_to sim_item.name, item_path(sim_item) %></li>
 		<% end %>
 <% else %>
-	<p>Similar Items: None</p> 
+	<p>There are no similar items in the system at this time.</p> 
 <% end %>
 <p> </p>
 <a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(@item) %> </a>
-<a class="waves-effect waves-red btn" <%= link_to "Destroy", @item, method: :delete %>
+<a class="waves-effect waves-red btn tooltipped" data-position="top" data-delay="50" data-tooltip="Are you sure?" <%= link_to "Destroy", @item, method: :delete %>
