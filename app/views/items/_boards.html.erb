@@ -5,7 +5,6 @@
 			<th>Price</th>
 			<th>Inventory</th>
 			<th></th>
-			<th></th>
 		</tr>
 	</thead>
 
@@ -20,7 +19,6 @@
 			<% end %>
 			<td><%= number_with_delimiter(item.inventory_level) %></td>
 			<td><a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(item) %> </a></td>
-			<td><a class="waves-effect waves-red btn" <%= link_to "Destroy", item, method: :delete %> </a></td>
 		</tr>
 		<% end %>
 	</tbody>

@@ -12,7 +12,6 @@
 				<th>Inventory</th>
 							<th>Reorder Level</th>
 				<th></th>
-				<th></th>
 			</tr>
 		</thead>
 		
@@ -23,7 +22,6 @@
 							<td><%= item.inventory_level %></td>
 							<td><%= item.reorder_level %></td>
 				<td><a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(item) %> </a></td>
-				<td><a class="waves-effect waves-red btn" <%= link_to "Destroy", item, method: :delete %> </a></td>
 			</tr>
 			<% end %>
 		</tbody>
