@@ -23,24 +23,22 @@
   <body>
   <nav>
     <div class="nav-wrapper teal">
-      <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Items", items_path %></li>
-        <li><%= link_to "Purchases", purchases_path %></li>
-        <li><%= link_to "Prices", item_prices_path %></li>
-      </ul>
+      <div class="container">
+        <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to "Items", items_path %></li>
+          <li><%= link_to "Purchases", purchases_path %></li>
+          <li><%= link_to "Prices", item_prices_path %></li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container">
-    <div class="row">
-      <div class="small-8 columns">
-        <!-- MAIN CONTENT GOES HERE -->
-        <%= yield %>
-        <%= javascript_include_tag "application" %>
-      </div>
-
-      <div class="small-1 columns">
-        &nbsp;
+    <div class="content">
+      <div class="row">
+          <!-- MAIN CONTENT GOES HERE -->
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
       </div>
     </div>
   </div>
