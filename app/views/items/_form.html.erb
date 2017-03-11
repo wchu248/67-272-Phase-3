@@ -11,35 +11,35 @@
   	<% end %>
 		
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">info_outline</i>
 				<%= f.label :name %>
     		<%= f.text_field :name %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">description</i>
 				<%= f.label :description %>
     		<%= f.text_field :description %>
 			</div>
     </div>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">list</i>
 				<%= f.label :category %><br></br>
 				<%= f.select :category, Item::CATEGORIES %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">color_lens</i>
 				<%= f.label :color %>
     		<%= f.text_field :color %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">fitness_center</i>
 				<%= f.label :weight %>
     		<%= f.number_field :weight %>
@@ -55,20 +55,19 @@
 			</div>
 		<% end %>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<i class="material-icons prefix">add_shopping_cart</i>
 				<%= f.label :reorder_level %>
     		<%= f.number_field :reorder_level %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12">
-				<input type="checkbox" class="filled-in" id="active" checked="checked" />
-				<label for="active">Active</label>
+			<div class="input-field col s10">
+				<%= f.input :active, as: :boolean %>
 			</div>
 		</div>
 		<div class ="row">
-			<div class="input-field col s12">
+			<div class="input-field col s10">
 				<button class="btn waves-effect waves-light">
 					<i class="material-icons right">send</i>
 					<%= f.submit %>
