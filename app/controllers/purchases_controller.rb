@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
 
   def index
-    @purchases = Purchase.all.paginate(page: params[:page]).per_page(10)
+    @purchases = Purchase.all.chronological.paginate(page: params[:page]).per_page(10)
   end
 
   def new
