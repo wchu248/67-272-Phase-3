@@ -5,27 +5,29 @@
 <h3>Recent Purchases </h3> 
 <a class="waves-effect waves-light btn" <%= link_to "Make a New Purchase", new_purchase_path %> </a>
 
-<table class="bordered highlight responsive-table">
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
-      <th>Date</th> 
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @purchases.each do |purchase| %>
-      <% unless purchase.nil? || purchase.item.nil? %>
+<div class="price-table">
+  <table class="bordered highlight responsive-table">
+    <thead>
       <tr>
-        <td><%= link_to purchase.item.name, item_path(purchase.item) %></td>
-        <td align="right"><%= number_with_delimiter(purchase.quantity) %></td>
-        <td><%= purchase.date.strftime("%m/%d/%y") %></td>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Date</th> 
       </tr>
+    </thead>
+
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <% unless purchase.nil? || purchase.item.nil? %>
+        <tr>
+          <td><%= link_to purchase.item.name, item_path(purchase.item) %></td>
+          <td align="right"><%= number_with_delimiter(purchase.quantity) %></td>
+          <td><%= purchase.date.strftime("%m/%d/%y") %></td>
+        </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <!-- Add the pagination using will_paginate gem -->
 <%= will_paginate @active_items %>
