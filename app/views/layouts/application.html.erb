@@ -21,27 +21,30 @@
   </head>
 
   <body>
-  <nav>
-    <div class="nav-wrapper teal">
-      <div class="top-bar">
-        <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to "Items", items_path %></li>
-          <li><%= link_to "Purchases", purchases_path %></li>
-          <li><%= link_to "Prices", item_prices_path %></li>
-        </ul>
+    <nav>
+      <div class="nav-wrapper teal">
+        <div class="top-bar">
+          <a class="brand-logo" <%= link_to "Alex & Mark's Chess Store", home_path %> </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to "Items", items_path %></li>
+            <li><%= link_to "Purchases", purchases_path %></li>
+            <li><%= link_to "Prices", item_prices_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </body>
+  <main>
+    <div class="container">
+      <div class="content">
+        <div class="row">
+            <!-- MAIN CONTENT GOES HERE -->
+            <%= yield %>
+            <%= javascript_include_tag "application" %>
+        </div>
       </div>
     </div>
-  </nav>
-  <div class="container">
-    <div class="content">
-      <div class="row">
-          <!-- MAIN CONTENT GOES HERE -->
-          <%= yield %>
-          <%= javascript_include_tag "application" %>
-      </div>
-    </div>
-  </div>
+  </main>
   <%= render partial: 'partials/footer' %>  
   </body>
 
