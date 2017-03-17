@@ -3,6 +3,7 @@
 <div class="row">
 	<%= simple_form_for(@purchase) do |f| %>
 
+		<!-- Dispaly error messages, if any -->
 		<% if @purchase.errors.any? %>
 			<div id="error_explanation">
 				<h6><%= pluralize(@purchase.errors.count, "error") %> prohibited this item from being saved:</h6>
@@ -12,6 +13,7 @@
 			</div>
   	<% end %>
 
+		<!-- Form for creating a new purchase -->
 		<div class="row">
 			<div class="input-field col s10">
 				<i class="material-icons prefix">info_outline</i>

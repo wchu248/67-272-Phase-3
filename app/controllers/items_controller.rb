@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
+    # Use this to show all the items broken down by category and ordered alphabetically
     @boards = Item.active.for_category('boards').alphabetical
     @pieces = Item.active.for_category('pieces').alphabetical
     @clocks = Item.active.for_category('clocks').alphabetical
@@ -18,6 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # need to show price history, similar items, and other details in the item show page
     @price_history = @item.item_prices.chronological.to_a
     @similar_items = Item.active.for_category(@item.category).alphabetical.select{ |i| i != @item }
   end

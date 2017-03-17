@@ -1,6 +1,7 @@
 class ItemPricesController < ApplicationController
 
   def index
+    # Use this to show the active items and their current prices, sorted alphabetically
     @active_items = Item.active.alphabetical.paginate(page: params[:page]).per_page(10)
   end
 

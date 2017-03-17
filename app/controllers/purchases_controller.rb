@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
 
   def index
+    # list all the purchases in the system, ordering by date
     @purchases = Purchase.all.chronological.paginate(page: params[:page]).per_page(10)
   end
 

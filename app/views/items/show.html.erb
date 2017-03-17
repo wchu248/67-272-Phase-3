@@ -1,6 +1,9 @@
+<!-- Flash a notice, if necessary -->
 <% if flash[:notice] %>
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
+
+<!-- Show the details of the item -->
 <h3><%= @item.name %></h3>
 <p>Price: 
 	<% if @item.current_price.nil? %>
@@ -24,9 +27,9 @@
 			<% end %>
 		<% end %>
 <% else %>
-	<p>There are no prices in the system for this item.
+	<p>There are no prices in the system for this item at this time.
 <% end %>
-<p></p>
+<p></p> <!-- Add a blank line for formatting issues -->
 <% unless @similar_items.empty?%>
 	<p>Similar Items:</p> 
 		<% for sim_item in @similar_items %>
@@ -35,6 +38,7 @@
 <% else %>
 	<p>There are no similar items in the system at this time.</p> 
 <% end %>
-<p> </p>
+<p></p> <!-- Add a blank line for formatting issues -->
+<!-- Buttons for editing and deleting the item -->
 <a class="waves-effect waves-teal btn" <%= link_to "Edit", edit_item_path(@item) %> </a>
 <a class="waves-effect waves-red btn tooltipped" data-position="top" data-delay="10" data-tooltip="Are you sure?" <%= link_to "Delete", @item, method: :delete %> </a>

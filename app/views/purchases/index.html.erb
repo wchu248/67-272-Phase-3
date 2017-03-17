@@ -1,8 +1,10 @@
+<!-- Flash a notice, if necessary -->
 <% if flash[:notice] %>
 	<div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
 <h3>Recent Purchases </h3> 
+<!-- Technically, add a new purchase to the system -->
 <a class="waves-effect waves-light btn" <%= link_to "Make a New Purchase", new_purchase_path %> </a>
 
 <div class="price-table">

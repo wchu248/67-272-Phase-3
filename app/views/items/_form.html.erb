@@ -1,6 +1,7 @@
 <div class="row">
 	<%= simple_form_for(@item) do |f| %>
 
+		<!-- Display errors, if any -->
 		<% if @item.errors.any? %>
 			<div id="error_explanation">
 				<h6><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h6>
@@ -10,6 +11,7 @@
 			</div>
   	<% end %>
 		
+		<!-- Form for adding a new item into the system -->
 		<div class="row">
 			<div class="input-field col s10">
 				<i class="material-icons prefix">info_outline</i>
@@ -45,6 +47,8 @@
     		<%= f.number_field :weight %>
 			</div>
 		</div>
+		<!-- Only show the inventory level field if creating a new item -->
+		<!-- Editing inventory level is done by making purchases -->
 		<% unless @item.save %>
 			<div class="row">
 				<div class="input-field col s10">
