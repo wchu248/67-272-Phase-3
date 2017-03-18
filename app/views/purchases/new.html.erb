@@ -15,21 +15,21 @@
 
 		<!-- Form for creating a new purchase -->
 		<div class="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<i class="material-icons prefix">info_outline</i>
 				<%= f.label :item %><br></br>
     		<%= f.collection_select :item_id, Item.active.alphabetical.all, :id, :name %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<i class="material-icons prefix">equalizer</i>
 				<%= f.label :quantity %>
     		<%= f.number_field :quantity %>
 			</div>
     </div>
 		<div class ="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<button class="btn waves-effect waves-light">
 					<i class="material-icons right">send</i>
 					<%= f.submit %>

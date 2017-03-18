@@ -15,21 +15,21 @@
 
 		<!-- Form for creating a new item price -->
 		<div class="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<i class="material-icons prefix">info_outline</i>
 				<%= f.label :item %><br></br>
     		<%= f.collection_select :item_id, Item.active.alphabetical.all, :id, :name %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<i class="material-icons prefix">attach_money</i>
 				<%= f.label :price %>
     		<%= f.number_field :price %>
 			</div>
     </div>
 		<div class ="row">
-			<div class="input-field col s10">
+			<div class="input-field col s8">
 				<button class="btn waves-effect waves-light">
 					<i class="material-icons right">send</i>
 					<%= f.submit %>
