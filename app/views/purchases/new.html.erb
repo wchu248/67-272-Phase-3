@@ -18,7 +18,7 @@
 			<div class="input-field col s10">
 				<i class="material-icons prefix">info_outline</i>
 				<%= f.label :item %><br></br>
-    		<%= f.collection_select :item_id, Item.active.all, :id, :name %>
+    		<%= f.collection_select :item_id, Item.active.alphabetical.all, :id, :name %>
 			</div>
 		</div>
 		<div class="row">
