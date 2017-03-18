@@ -5,20 +5,20 @@
 
 <!-- Show the details of the item -->
 <h3><%= @item.name %></h3>
-<p>Price: 
+<p><b>Price:</b> 
 	<% if @item.current_price.nil? %>
 		N/A
 	<% else %>
 		<%= "$" + number_with_delimiter(number_with_precision(@item.current_price, precision: 2)) %>
 	<% end %>
 </p>
-<p>Category: <%= @item.category.capitalize %></p>
-<p>Description: <%= @item.description %></p>
-<p>Inventory Level: <%= number_with_delimiter(@item.inventory_level) %></p>
-<p>Reorder Level: <%= number_with_delimiter(@item.reorder_level) %></p>
-<p>Color: <%= @item.color %></p>
+<p><b>Category:</b> <%= @item.category.capitalize %></p>
+<p><b>Description:</b> <%= @item.description %></p>
+<p><b>Inventory Level:</b> <%= number_with_delimiter(@item.inventory_level) %></p>
+<p><b>Reorder Level:</b> <%= number_with_delimiter(@item.reorder_level) %></p>
+<p><b>Color:</b> <%= @item.color.capitalize %></p>
 <% unless @price_history.empty? %>
-	<p>Price History:</p>
+	<p><b>Price History:</b></p>
 		<% for p_hist in @price_history %>
 			<% if p_hist.end_date.nil? %>
 				<li><%= "From " + p_hist.start_date.strftime("%-m/%-d/%y") + " to today: " + number_to_currency(p_hist.price) %></li>
@@ -31,7 +31,7 @@
 <% end %>
 <p></p> <!-- Add a blank line for formatting issues -->
 <% unless @similar_items.empty?%>
-	<p>Similar Items:</p> 
+	<p><b>Similar Items:</b></p> 
 		<% for sim_item in @similar_items %>
 			<li><%= link_to sim_item.name, item_path(sim_item) %></li>
 		<% end %>
