@@ -16,7 +16,7 @@
 <p><b>Description:</b> <%= @item.description %></p>
 <p><b>Inventory Level:</b> <%= number_with_delimiter(@item.inventory_level) %></p>
 <p><b>Reorder Level:</b> <%= number_with_delimiter(@item.reorder_level) %></p>
-<p><b>Color:</b> <%= @item.color.capitalize %></p>
+<p><b>Color:</b> <%= @item.color %></p>
 <% unless @price_history.empty? %>
 	<p><b>Price History:</b></p>
 		<% for p_hist in @price_history %>
